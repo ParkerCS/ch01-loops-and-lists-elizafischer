@@ -2,7 +2,7 @@
 #In these exercises you write functions. Of course, you should not only write the functions,
 #you should also write code to test them. For practice, you should also comment your
 #functions as explained above.
-
+import random
 
 
 #PROBLEM 1 (8-ball - 5pts)
@@ -17,12 +17,46 @@ now", "Cannot predict now", "Concentrate and ask again", "Don ' t \
 count on it", "My reply is no", "My sources say no", "Outlook \
 not so good", "Very doubtful" ]
 
+def eight_ball():
+    print(input("Ask the magic eight ball any yes or no question and it will give an answer!"))
+    answer_list = ["It is certain!", "It is decidedly so!", "Without a \
+    doubt!", "Yes, definitely!", "You may rely on it!", "As I see it, \
+    yes.", "Most likely.", "Outlook good.", "Yes!", "Signs point to yes.",
+    "Reply hazy, try again.", "Ask again later...", "Better not tell you \
+    now...", "Cannot predict now...", "Concentrate and ask again!", "Don't\
+    count on it!", "My reply is no.", "My sources say no.", "Outlook\
+    not so good...", "Very doubtful."]
+    choice = random.randrange(0,20) #we will use this to pick a random string from answer_list
+    choice = int(choice)
+    print(answer_list[choice])
+
+eight_ball()
 
 # PROBLEM 2 (Shuffle - 5pts)
 # A playing card consists of a suit (Heart, Diamond, Club, Spade) and a value (2,3,4,5,6,7,8,9,10,J,Q,K,A).
 # Create a list of all possible playing cards, which is a deck.
 # Then create a function that shuffles the deck, producing a random order.
 
+
+def shuffle_deck():
+    suit_list = ["Hearts", "Diamonds", "Clubs", "Spades"]
+    card_list = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"]
+    for cards in range(53):
+        cards = random.randrange(len(suit_list))
+
+
+value_list = [2,3,4,5,6,7,8,9,10,"Jack", "Kind", "Queen", "Ace"]
+suit_list = ["Hearts", "Diamonds", "Clubs", "Spades"]
+deck = []
+for i in range(53):
+    i = random.randrange(len(value_list))
+    j = random.randrange(len(suit_list))
+    card = print(value_list[i], "of", suit_list[j])
+    deck.append(card)
+
+print()
+
+shuffle_deck()
 
 # PROBLEM 3 (The sieve of Eratosthenes - 10pts)
 # The sieve of Eratosthenes is a method to find all prime numbers between
@@ -36,6 +70,9 @@ not so good", "Very doubtful" ]
 # Process all the numbers of the list in this way. When you have finished,
 # the only numbers left on the list are primes.
 # Use this method to determine all the primes between 1 and 1000.
+
+
+
 
 # PROBLEM 4 (Tic-Tac-Toe - 15pts)
 # Write a Tic-Tac-Toe program that allows two people to play the game against each other.
@@ -71,6 +108,14 @@ not so good", "Very doubtful" ]
 #       announce draw
 #       break
 #   switch player
+
+
+
+
+
+
+
+
 
 # CHALLENGE PROBLEM 5 (Battleship NO CREDIT, JUST IF YOU WANT TO TRY IT)
 # Create a program that is a simplified version of the game “Battleship.”
