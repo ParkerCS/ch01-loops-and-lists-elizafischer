@@ -37,27 +37,27 @@ eight_ball()
 # Create a list of all possible playing cards, which is a deck.
 # Then create a function that shuffles the deck, producing a random order.
 
-
 def shuffle_deck():
     suit_list = ["Hearts", "Diamonds", "Clubs", "Spades"]
-    card_list = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"]
-    for cards in range(53):
+    card_list = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
+    card_deck = []
+    for suit in suit_list:
+        for card in card_list:
+            card_deck.append([card, suit])
+    print(card_deck)
+    for cards in len(card_deck):
         cards = random.randrange(len(suit_list))
-
-
-value_list = [2,3,4,5,6,7,8,9,10,"Jack", "Kind", "Queen", "Ace"]
-suit_list = ["Hearts", "Diamonds", "Clubs", "Spades"]
-deck = []
-for i in range(53):
-    i = random.randrange(len(value_list))
-    j = random.randrange(len(suit_list))
-    card = print(value_list[i], "of", suit_list[j])
-    deck.append(card)
-
-print()
-
+        number = random.randrange(len(card_list))
+        deck = print(card_list[cards], "of", suit_list[number])
+        card_deck.append(deck)
 shuffle_deck()
 
+'''
+shuffled_deck = []
+for i in range(len(deck)):
+    card = deck.pop(random.randrange(len(deck)))
+    shuffled_deck.append(card)
+'''
 # PROBLEM 3 (The sieve of Eratosthenes - 10pts)
 # The sieve of Eratosthenes is a method to find all prime numbers between
 # 1 and a given number using a list. This works as follows: Fill the list with the sequence of
@@ -72,10 +72,22 @@ shuffle_deck()
 # Use this method to determine all the primes between 1 and 1000.
 
 
+'''
+prime_list = []
+num_list = []
+for i in range(2, 1002):
+    num_list.append(i)
 
 
+for num in num_list:
+    if num != 0:
+        for i in range(len(num_list)):
+            if num_list[i]% num == 0 and num_list[i] != num:
+                num_list[i] = 0
+print(num_list)
+'''
 # PROBLEM 4 (Tic-Tac-Toe - 15pts)
-# Write a Tic-Tac-Toe program that allows two people to play the game against each other.
+# Write a Tic-Tac-Toe program that allows two peo1ple to play the game against each other.
 # In turn, ask each player which row and column they want to play.
 # Make sure that the program checks if that row/column combination is empty.
 # When a player has won, end the game.
