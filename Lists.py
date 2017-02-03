@@ -132,7 +132,7 @@ def check_rowcolumn():
     y = input(int("Enter a y position to see if that spot is open: "))
     # if x is not available print error
     # if y is not available print error
-    
+
 def x_marker():
     pass
 
