@@ -4,60 +4,54 @@
 #functions as explained above.
 import random
 
-
 #PROBLEM 1 (8-ball - 5pts)
 # A magic 8-ball, when asked a question, provides a random answer from a list.
 # The code below contains a list of possible answers. Create a magic 8-ball program that
 # prints a random answer.
-answer_list = [ "It is certain", "It is decidedly so", "Without a \
-doubt", "Yes, definitely", "You may rely on it", "As I see it, \
-yes", "Most likely", "Outlook good", "Yes", "Signs point to yes",
-"Reply hazy try again", "Ask again later", "Better not tell you \
-now", "Cannot predict now", "Concentrate and ask again", "Don ' t \
-count on it", "My reply is no", "My sources say no", "Outlook \
-not so good", "Very doubtful" ]
 
+'''
 def eight_ball():
     print(input("Ask the magic eight ball any yes or no question and it will give an answer!"))
     answer_list = ["It is certain!", "It is decidedly so!", "Without a \
-    doubt!", "Yes, definitely!", "You may rely on it!", "As I see it, \
+    doubt!", "Yes, definitely!", "You may rely on it!", "As I see it,\
     yes.", "Most likely.", "Outlook good.", "Yes!", "Signs point to yes.",
     "Reply hazy, try again.", "Ask again later...", "Better not tell you \
-    now...", "Cannot predict now...", "Concentrate and ask again!", "Don't\
-    count on it!", "My reply is no.", "My sources say no.", "Outlook\
-    not so good...", "Very doubtful."]
+    now...", "Cannot predict now...", "Concentrate and ask again!", "Don't count on it!",\
+    "My reply is no.", "My sources say no.", "Outlook not so good...",\
+    "Very doubtful."]
     choice = random.randrange(0,20) #we will use this to pick a random string from answer_list
     choice = int(choice)
     print(answer_list[choice])
 
 eight_ball()
+'''
 
+
+print("")
 # PROBLEM 2 (Shuffle - 5pts)
 # A playing card consists of a suit (Heart, Diamond, Club, Spade) and a value (2,3,4,5,6,7,8,9,10,J,Q,K,A).
 # Create a list of all possible playing cards, which is a deck.
 # Then create a function that shuffles the deck, producing a random order.
-
+'''
 def shuffle_deck():
     suit_list = ["Hearts", "Diamonds", "Clubs", "Spades"]
     card_list = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
     card_deck = []
     for suit in suit_list:
-        for card in card_list:
+        for card in card_list: # nested loops allow for the lists to be combined
             card_deck.append([card, suit])
     print(card_deck)
-    for cards in range(len(card_deck)):
+    for cards in range(len(card_deck)): # this will make 52 cards because the number of types of cards times the number of suits is 52
         cards = random.randrange(len(suit_list))
         number = random.randrange(len(card_list))
         deck = print(card_list[cards], "of", suit_list[number])
         card_deck.append(deck)
-shuffle_deck()
 
+shuffle_deck()
 '''
-shuffled_deck = []
-for i in range(len(deck)):
-    card = deck.pop(random.randrange(len(deck)))
-    shuffled_deck.append(card)
-'''
+
+
+print("")
 # PROBLEM 3 (The sieve of Eratosthenes - 10pts)
 # The sieve of Eratosthenes is a method to find all prime numbers between
 # 1 and a given number using a list. This works as follows: Fill the list with the sequence of
@@ -70,8 +64,24 @@ for i in range(len(deck)):
 # Process all the numbers of the list in this way. When you have finished,
 # the only numbers left on the list are primes.
 # Use this method to determine all the primes between 1 and 1000.
+'''
+number_list = []
+prime_numlist = []
 
+for i in range(1002):
+    number_list.append(i)
 
+for number in number_list:
+    if number != 0:
+        for i in range(len(number_list)):
+            number_list = str(number_list)
+            if (number_list[i]% (int(number)) == 0) and (number_list[i] != int(number)):
+                number_list = 0
+
+print(number_list)
+'''
+
+print("")
 # PROBLEM 4 (Tic-Tac-Toe - 15pts)
 # Write a Tic-Tac-Toe program that allows two peo1ple to play the game against each other.
 # In turn, ask each player which row and column they want to play.
@@ -107,34 +117,14 @@ for i in range(len(deck)):
 #       break
 #   switch player
 
+# Display board
+def display(length):
+    for i in range(int(length)):
+        print(" " * length , " | " , " " * length , " | ", " " * length)
+        print(" " * length , "-----" * length , " " * length)
+    print(" " * length, " | ", " " * length, " | ", " " * length)
 
+display(2)
 
-
-
-
-
-
-
-# CHALLENGE PROBLEM 5 (Battleship NO CREDIT, JUST IF YOU WANT TO TRY IT)
-# Create a program that is a simplified version of the game “Battleship.”
-# The computer creates (in memory) a grid that is 4 cells wide and 3 cells high.
-# The rows of the grid are numbered 1 to 3, and the columns of the grid are labeled A to D.
-# The computer hides a battleship in three random cells in the grid.
-# Each battleship occupies exactly one cell.
-# Battleships are not allowed to touch each other horizontally or vertically.
-# Make sure that the program places the battleships randomly, so not pre-configured.
-# The computer asks the player to “shoot” at cells of the grid.
-# The player does so by entering the column letter and row number of the cell
-# which she wants to shoot at (e.g., "D3").
-# If the cell which the player shoots at contains nothing, the computer responds with “Miss!”
-#  If the cell contains a battleship, the computer responds with “You sunk my battleship!”
-# and removes the battleship from the cell (i.e., a second shot at the same cell is a miss).
-# As soon as the player hits the last battleship, the computer responds with displaying
-# how many shots the player needed to shoot down all three battleships, and the program ends.
-# To help with debugging the game, at the start the computer should display the grid with
-# O's marking empty cells and X's marking cells with battleships.
-# Hint: If you have troubles with this exercise, start by using a board which has the
-# battleships already placed.
-# Once the rest of the code works, add a function that places the battleships at random,
-# at first without checking if they are touching one another.
-# Once that works, add code that disallows battleships touching each other.
+def check_rowcolumn(x, y):
+    
