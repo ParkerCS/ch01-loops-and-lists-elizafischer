@@ -126,5 +126,16 @@ def display(length):
 
 display(2)
 
-def check_rowcolumn(x, y):
+
+def check_rowcolumn():
+    x = input(int("Enter an x position to see if that spot is open: "))
+    y = input(int("Enter a y position to see if that spot is open: "))
+    # if x is not available print error
+    # if y is not available print error
     
+def x_marker():
+    pass
+
+def check_board():
+    pass
+
