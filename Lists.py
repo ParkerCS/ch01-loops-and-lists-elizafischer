@@ -52,7 +52,7 @@ def shuffle_deck():
         card_deck.append(deck)
 shuffle_deck()
 
-'''
+''' 
 shuffled_deck = []
 for i in range(len(deck)):
     card = deck.pop(random.randrange(len(deck)))
