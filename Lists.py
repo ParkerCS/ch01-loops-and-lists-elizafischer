@@ -45,14 +45,14 @@ def shuffle_deck():
         for card in card_list:
             card_deck.append([card, suit])
     print(card_deck)
-    for cards in len(card_deck):
+    for cards in range(len(card_deck)):
         cards = random.randrange(len(suit_list))
         number = random.randrange(len(card_list))
         deck = print(card_list[cards], "of", suit_list[number])
         card_deck.append(deck)
 shuffle_deck()
 
-''' 
+'''
 shuffled_deck = []
 for i in range(len(deck)):
     card = deck.pop(random.randrange(len(deck)))
@@ -72,20 +72,6 @@ for i in range(len(deck)):
 # Use this method to determine all the primes between 1 and 1000.
 
 
-'''
-prime_list = []
-num_list = []
-for i in range(2, 1002):
-    num_list.append(i)
-
-
-for num in num_list:
-    if num != 0:
-        for i in range(len(num_list)):
-            if num_list[i]% num == 0 and num_list[i] != num:
-                num_list[i] = 0
-print(num_list)
-'''
 # PROBLEM 4 (Tic-Tac-Toe - 15pts)
 # Write a Tic-Tac-Toe program that allows two peo1ple to play the game against each other.
 # In turn, ask each player which row and column they want to play.
