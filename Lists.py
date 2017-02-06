@@ -116,7 +116,7 @@ print("")
 #       announce draw
 #       break
 #   switch player
-
+ 
 # Display board
 def display(length):
     for i in range(int(length)):
