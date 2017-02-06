@@ -116,7 +116,7 @@ print("")
 #       announce draw
 #       break
 #   switch player
- 
+
 # Display board
 def display(length):
     for i in range(int(length)):
@@ -138,4 +138,43 @@ def x_marker():
 
 def check_board():
     pass
+
+
+def draw_board(board):
+    count = 0
+    for i in range(len(board)):
+        for j in range(len(board[i])):
+            print(board[i][j], end = " ")
+            count += 1
+
+'''
+make list for the board [" ", " ", ]
+USE LISTS
+
+enter row, (1 2 or 3)
+enter column (1,2 or 3)
+
+create a bunch of functions and then make a while loop
+
+row_count
+col_count
+check_win
+
+create a "check if full function"
+
+player == "X"
+player == "O"
+
+
+IN THE WHILE LOOP
+row = int(input)
+col = int input
+'''
+
+
+for col in range(len(board)):
+    col_count = 0
+
+
+
 
