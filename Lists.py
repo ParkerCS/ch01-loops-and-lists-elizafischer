@@ -117,28 +117,40 @@ print("")
 #       break
 #   switch player
 
-# Display board
-def display(length):
+
+#FUNCTIONS
+def display(length): # display board
     for i in range(int(length)):
         print(" " * length , " | " , " " * length , " | ", " " * length)
         print(" " * length , "-----" * length , " " * length)
     print(" " * length, " | ", " " * length, " | ", " " * length)
 
-display(2)
+'''
+def player_input():
+    player = (input("Enter and X or an O and the computer will take the opposite symbol: ")).upper()
+    print(player)
+'''
+def position_andprint(): #takes player's position
+    board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    xposition = int(input("enter a row, 1, 2, or 3: "))
+    yposition = int(input("enter a column, 1, 2, or 3: "))
+    print(board[xposition])
+    print(board[yposition])
 
 
 def check_rowcolumn():
-    x = input(int("Enter an x position to see if that spot is open: "))
-    y = input(int("Enter a y position to see if that spot is open: "))
+    pass
+    #x = input(int("Enter an x position to see if that spot is open: "))
+    #y = input(int("Enter a y position to see if that spot is open: "))
     # if x is not available print error
     # if y is not available print error
 
-def x_marker():
-    pass
 
-def check_board():
-    pass
-
+def check_win(board):
+    win_combinations = ((1, 2, 3) , (4, 5, 6), (7, 8, 9), (1, 5, 9), (2, 5, 8), (3, 5, 7), (1, 4, 7), (3, 6, 9))
+    for value in win_combinations:
+        if board[value[0] - 1] == board[value[1] - 1] and board[value[1] - 1] == board[value[2] - 1]:
+            return board[value[0] - 1]
 
 def draw_board(board):
     count = 0
@@ -169,12 +181,15 @@ player == "O"
 IN THE WHILE LOOP
 row = int(input)
 col = int input
-'''
-
 
 for col in range(len(board)):
     col_count = 0
 
+'''
 
+done = False
+display(2)
 
-
+while not done:
+    position_andprint()
+    check_win()
