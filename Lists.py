@@ -117,7 +117,6 @@ print("")
 #       break
 #   switch player
 
-
 #FUNCTIONS
 '''
 def player_input():
@@ -144,6 +143,7 @@ def position_andprint(): #takes player's position
     yposition = int(input("Enter a column, 1, 2, or 3: "))
     print(board[xposition])
     print(board[yposition])
+    #if xposition = full, error
 
 
 def check_win(board):
