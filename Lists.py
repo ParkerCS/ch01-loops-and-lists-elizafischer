@@ -119,24 +119,10 @@ print("")
 
 
 #FUNCTIONS
-def display(length): # display board
-    for i in range(int(length)):
-        print(" " * length , " | " , " " * length , " | ", " " * length)
-        print(" " * length , "-----" * length , " " * length)
-    print(" " * length, " | ", " " * length, " | ", " " * length)
-
 '''
 def player_input():
     player = (input("Enter and X or an O and the computer will take the opposite symbol: ")).upper()
     print(player)
-'''
-def position_andprint(): #takes player's position
-    board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    xposition = int(input("enter a row, 1, 2, or 3: "))
-    yposition = int(input("enter a column, 1, 2, or 3: "))
-    print(board[xposition])
-    print(board[yposition])
-
 
 def check_rowcolumn():
     pass
@@ -144,6 +130,20 @@ def check_rowcolumn():
     #y = input(int("Enter a y position to see if that spot is open: "))
     # if x is not available print error
     # if y is not available print error
+'''
+def display(length): # display board
+    for i in range(int(length)):
+        print(" " * length , " | " , " " * length , " | ", " " * length)
+        print(" " * length , "-----" * length , " " * length)
+    print(" " * length, " | ", " " * length, " | ", " " * length)
+    print()
+
+def position_andprint(): #takes player's position
+    board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    xposition = int(input("Enter a row, 1, 2, or 3: "))
+    yposition = int(input("Enter a column, 1, 2, or 3: "))
+    print(board[xposition])
+    print(board[yposition])
 
 
 def check_win(board):
