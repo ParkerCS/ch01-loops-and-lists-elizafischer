@@ -1,3 +1,20 @@
+'''
+check version history for what changed
+
+eight ball was good
+
+deck shuffle went out of range due to checking a random number index from 0 to 51 on a suit list which was only 4 long.
+
+I adjusted your sieve to work.  Couple minor changes.  you mostly had the solution.
+
+I added some code that might send you in the right direction on
+tic tac toe.  Resubmit for credit if you choose.
+
+
+
+
+'''
+
 #LISTS (35PTS TOTAL)
 #In these exercises you write functions. Of course, you should not only write the functions,
 #you should also write code to test them. For practice, you should also comment your
@@ -9,7 +26,7 @@ import random
 # The code below contains a list of possible answers. Create a magic 8-ball program that
 # prints a random answer.
 
-'''
+
 def eight_ball():
     print(input("Ask the magic eight ball any yes or no question and it will give an answer!"))
     answer_list = ["It is certain!", "It is decidedly so!", "Without a \
@@ -24,7 +41,7 @@ def eight_ball():
     print(answer_list[choice])
 
 eight_ball()
-'''
+
 
 
 print("")
@@ -32,23 +49,25 @@ print("")
 # A playing card consists of a suit (Heart, Diamond, Club, Spade) and a value (2,3,4,5,6,7,8,9,10,J,Q,K,A).
 # Create a list of all possible playing cards, which is a deck.
 # Then create a function that shuffles the deck, producing a random order.
-'''
+import random
 def shuffle_deck():
     suit_list = ["Hearts", "Diamonds", "Clubs", "Spades"]
     card_list = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]
     card_deck = []
+    shuffled_deck = []
     for suit in suit_list:
         for card in card_list: # nested loops allow for the lists to be combined
             card_deck.append([card, suit])
     print(card_deck)
-    for cards in range(len(card_deck)): # this will make 52 cards because the number of types of cards times the number of suits is 52
-        cards = random.randrange(len(suit_list))
-        number = random.randrange(len(card_list))
-        deck = print(card_list[cards], "of", suit_list[number])
-        card_deck.append(deck)
-
+    for i in range(len(card_deck)): # this will make 52 cards because the number of types of cards times the number of suits is 52
+        card = card_deck.pop(random.randrange(len(card_deck)))
+        #number = random.randrange(len(card_list))
+        #deck = print(card_list[cards], "of", suit_list[number])
+        print(card)
+        shuffled_deck.append(card)
+    print(shuffled_deck)
 shuffle_deck()
-'''
+
 
 
 print("")
@@ -64,22 +83,23 @@ print("")
 # Process all the numbers of the list in this way. When you have finished,
 # the only numbers left on the list are primes.
 # Use this method to determine all the primes between 1 and 1000.
-'''
+
 number_list = []
 prime_numlist = []
 
 for i in range(1002):
     number_list.append(i)
+print(number_list)
 
 for number in number_list:
-    if number != 0:
-        for i in range(len(number_list)):
-            number_list = str(number_list)
-            if (number_list[i]% (int(number)) == 0) and (number_list[i] != int(number)):
-                number_list = 0
+    if number != 0 and number >= 2:
+        for i in range(number, len(number_list)):
+            #number_list = str(number_list)
+            if number_list[i]%number == 0 and number_list[i] != number:
+                number_list[i] = 0
 
 print(number_list)
-'''
+
 
 print("")
 # PROBLEM 4 (Tic-Tac-Toe - 15pts)
@@ -137,27 +157,34 @@ def display(length): # display board
     print(" " * length, " | ", " " * length, " | ", " " * length)
     print()
 
-def position_andprint(): #takes player's position
-    board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+def position_andprint(board,player): #takes player's position
+    #board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     xposition = int(input("Enter a row, 1, 2, or 3: "))
     yposition = int(input("Enter a column, 1, 2, or 3: "))
-    print(board[xposition])
-    print(board[yposition])
+    #print(board[xposition])
+    #print(board[yposition])
+    board[yposition][xposition] = player
     #if xposition = full, error
 
 
-def check_win(board):
+def check_win(board, player):
+    '''
     win_combinations = ((1, 2, 3) , (4, 5, 6), (7, 8, 9), (1, 5, 9), (2, 5, 8), (3, 5, 7), (1, 4, 7), (3, 6, 9))
     for value in win_combinations:
         if board[value[0] - 1] == board[value[1] - 1] and board[value[1] - 1] == board[value[2] - 1]:
             return board[value[0] - 1]
+    '''
+    if board[0][0] == board[0][1] == board[0][2] == player:
+        print(player, "WINS!")
+
 
 def draw_board(board):
-    count = 0
+    #count = 0
     for i in range(len(board)):
         for j in range(len(board[i])):
             print(board[i][j], end = " ")
-            count += 1
+            #count += 1
+        print()
 
 '''
 make list for the board [" ", " ", ]
@@ -188,8 +215,11 @@ for col in range(len(board)):
 '''
 
 done = False
-display(2)
-
+#display(2)
+player = "X"
+board = [["-","-","-"],["-","-","-"],["-","-","-"]]
 while not done:
-    position_andprint()
-    check_win()
+    draw_board(board)
+    position_andprint(board, player)
+
+    check_win(board, player)
